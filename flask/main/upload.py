@@ -38,11 +38,25 @@ def uploadparam():
     param = request.json
     if param['id']:
         client_id = param['id']
-        del(param['id'])
         print(f'client: {client_id}')
     
-    p_values = list(param.values())
-    model_inputlist = list(product(*p_values))
+    if param['param']:
+        p_values = list(param['param'].values())
+        model_inputlist = list(product(*p_values))
     print(model_inputlist)
 
     return jsonify(param)
+
+
+'''if __name__ == '__main__':
+    dic = {
+        "id":"pa",
+        "param":{
+            "Surim":["1","2","3"],
+            "someone":["2","4"]
+        }
+    }
+    if dic['param']:
+        p_values = list(dic['param'].values())
+        model_inputlist = list(product(*p_values))
+        print(model_inputlist)'''
