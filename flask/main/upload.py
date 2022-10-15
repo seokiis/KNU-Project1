@@ -24,8 +24,8 @@ def uploadfile():
         return 'File is missing', 404
     
     filename = secure_filename(f.filename)
-    f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
-    # f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], id+'_'+filename))
+#     f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+    f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], id+'_'+filename))
 
     return server_res
 
