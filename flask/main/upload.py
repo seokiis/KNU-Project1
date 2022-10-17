@@ -8,7 +8,7 @@ blue_upload = Blueprint("upload", __name__, url_prefix="/upload")
 @blue_upload.route('/file', methods=['POST'])
 def uploadfile():
     
-    server_res = Response('successfully uploaded in Server.')
+    server_res = Response('file successfully uploaded in Server.')
     server_res.headers["Access-Control-Allow-Origin"] = "*"
 
 # **** 파일과 ID가 정상 입력되었는지 체크 ****
@@ -32,7 +32,7 @@ def uploadfile():
 @blue_upload.route('/param', methods=['POST'])
 def uploadparam():
 
-    server_res = Response('successfully uploaded in Server.')
+    server_res = Response('json successfully uploaded in Server.')
     server_res.headers["Access-Control-Allow-Origin"] = "*"
 
     param = request.json
