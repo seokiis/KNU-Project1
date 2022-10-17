@@ -4,6 +4,7 @@ from werkzeug.utils import secure_filename
 from flask import Blueprint, request, jsonify, Response, current_app
 
 blue_upload = Blueprint("upload", __name__, url_prefix="/upload")
+param =''
 
 @blue_upload.route('/file', methods=['POST'])
 def uploadfile():
@@ -32,6 +33,8 @@ def uploadfile():
 @blue_upload.route('/param', methods=['POST'])
 def uploadparam():
 
+    global param
+
     server_res = Response('json successfully uploaded in Server.')
     server_res.headers["Access-Control-Allow-Origin"] = "*"
 
@@ -41,7 +44,7 @@ def uploadparam():
         print(f'client: {client_id}')
     
     if param['param']:
-        p_values = list(param['param'].values())
+        p_values = list(param['param'])
         model_inputlist = list(product(*p_values))
     print(model_inputlist)
 
