@@ -1,6 +1,7 @@
 import os
 from itertools import product
 from werkzeug.utils import secure_filename
+import json
 from flask import Blueprint, request, jsonify, Response, current_app
 
 blue_upload = Blueprint("upload", __name__, url_prefix="/upload")
@@ -9,7 +10,7 @@ param =''
 @blue_upload.route('/file', methods=['POST'])
 def uploadfile():
     
-    server_res = Response('file successfully uploaded in Server.')
+    server_res = Response('Successfully uploaded in Server.')
     server_res.headers["Access-Control-Allow-Origin"] = "*"
 
 # **** 파일과 ID가 정상 입력되었는지 체크 ****
@@ -24,42 +25,30 @@ def uploadfile():
     if f.filename == '':
         return 'File is missing', 404
     
+# **** 파일을 저장합니다 **** 파일명 = ID_filename
     filename = secure_filename(f.filename)
-    # f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
     f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], id+'_'+filename))
+    print(f'file has been saved :{id}_{filename}')
 
     return server_res
 
 @blue_upload.route('/param', methods=['POST'])
 def uploadparam():
 
-    global param
-
-    server_res = Response('json successfully uploaded in Server.')
+    server_res = Response('Successfully uploaded in Server.')
     server_res.headers["Access-Control-Allow-Origin"] = "*"
 
-    param = request.json
-    if param['id']:
-        client_id = param['id']
-        print(f'client: {client_id}')
-    
-    if param['param']:
-        p_values = list(param['param'])
-        model_inputlist = list(product(*p_values))
-    print(model_inputlist)
+    # if 'param' not in request.form:
+    #     return 'Paramters are missing', 404
 
-    return jsonify(param)
+    params = request.json
 
+    # **** 파라미터를 저장합니다
+    print(params)
+    id = params['id']
+    ppath = './parameter/'+id+'.json'
+    with open(ppath, 'w', encoding='utf_8') as psave:
+        json.dump(params, psave, indent=4)
+    print('parameters have been saved successfully')
 
-'''if __name__ == '__main__':
-    dic = {
-        "id":"pa",
-        "param":{
-            "Surim":["1","2","3"],
-            "someone":["2","4"]
-        }
-    }
-    if dic['param']:
-        p_values = list(dic['param'].values())
-        model_inputlist = list(product(*p_values))
-        print(model_inputlist)'''
+    return server_res

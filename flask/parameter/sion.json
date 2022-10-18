@@ -1,0 +1,7 @@
+{
+    "id": "sion",
+    "param": {
+        "learning_rate": 0.1,
+        "Dropout": 0.2
+    }
+}
