@@ -5,11 +5,14 @@ import json
 from flask import Blueprint, request, jsonify, Response, current_app
 
 blue_upload = Blueprint("upload", __name__, url_prefix="/upload")
-param =''
+
+global userfile
+userfile = ''
 
 @blue_upload.route('/file', methods=['POST'])
 def uploadfile():
-    
+    global userfile
+
     server_res = Response('Successfully uploaded in Server.')
     server_res.headers["Access-Control-Allow-Origin"] = "*"
 
@@ -28,12 +31,14 @@ def uploadfile():
 # **** 파일을 저장합니다 **** 파일명 = ID_filename
     filename = secure_filename(f.filename)
     f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], id+'_'+filename))
-    print(f'file has been saved :{id}_{filename}')
+    print(f'file has been saved as {id}_{filename}')
+    userfile = id+'_'+filename
 
     return server_res
 
 @blue_upload.route('/param', methods=['POST'])
 def uploadparam():
+    global userid
 
     server_res = Response('Successfully uploaded in Server.')
     server_res.headers["Access-Control-Allow-Origin"] = "*"
@@ -49,6 +54,6 @@ def uploadparam():
     ppath = './parameter/'+id+'.json'
     with open(ppath, 'w', encoding='utf_8') as psave:
         json.dump(params, psave, indent=4)
-    print('parameters have been saved successfully')
+    print(f'parameters have been saved successfully in {id}.json')
 
     return server_res

@@ -10,14 +10,13 @@ blue_execute = Blueprint("execute", __name__, url_prefix="/execute")
 
 @blue_execute.route('/<id>')
 def executepy(id):
-
     server_res = Response('The file is executed ...')
     server_res.headers["Access-Control-Allow-Origin"] = "*"
 
     pjson = './parameter/'+id+'.json'
     params = json.load(open(pjson))
 
-    location = current_app.config['UPLOAD_FOLDER'] + '/sion_melonkubetest.py'
+    location = os.path.join(current_app.config['UPLOAD_FOLDER'], upload.userfile)
     
     # 이중 Json 해체하여 real_param에 파라미터 값 넘겨주기
     real_param = params['param']
@@ -27,7 +26,7 @@ def executepy(id):
 
     param_str = ''
     for i in range(len(real_param)):
-        param_str += ' --'+ptype[i]+' '+str(pvalue[i])
+        param_str += ' --'+ptype[i] + ' ' + str(pvalue[i])
 
     print(param_str)
 
