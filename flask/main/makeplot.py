@@ -9,6 +9,12 @@ import plotly.express as px         # pip install plotly
 import plotly
 import os
 
+
+'''
+@ 모델을 돌린 후 나온 결과(json 형식) 파일을 plot 형태로 변환하여 저장
+@ dic_result : json list
+@@@ 수정해야할 부분 : file이름에 id가 들어가도록 변경, 파일저장위치 변경
+'''
 def makeplot(dic_result):
 
     # get value from dic_result (parameter names, value)
