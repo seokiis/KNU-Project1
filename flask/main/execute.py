@@ -19,7 +19,7 @@ def executepy(id):
     location = os.path.join(current_app.config['UPLOAD_FOLDER'], upload.userfile)
     
     # 이중 Json 해체하여 real_param에 파라미터 값 넘겨주기
-    real_param = params['param']
+    real_param = params['params']
 
     ptype = list(real_param.keys())
     pvalue = list(real_param.values())
@@ -34,7 +34,16 @@ def executepy(id):
 
     order = 'python3' + ' ' + location +  ' ' + param_str
 
-    out = subprocess.run(order, shell=True)
-    print('return code', out.returncode)
+
+    real_param = params['params']
+    print(real_param[0]['name'])
+    print(real_param[0]['domain'])
+    print(real_param[0]['value'])
+    print(real_param[1]['name'])
+    print(real_param[1]['domain'])
+    print(real_param[1]['value'])
+
+    # out = subprocess.run(order, shell=True)
+    # print('return code', out.returncode)
 
     return server_res

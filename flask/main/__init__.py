@@ -4,7 +4,6 @@ from flask_cors import CORS
 from . import upload
 from . import download
 from . import execute
-from . import makeplot
 
 app = Flask(__name__)
 CORS(app)
