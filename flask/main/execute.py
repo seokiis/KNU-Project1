@@ -5,13 +5,22 @@ from itertools import product
 from . import upload
 from werkzeug.utils import secure_filename
 from flask import Blueprint, request, jsonify, Response, current_app
+import makeplot
 
 blue_execute = Blueprint("execute", __name__, url_prefix="/execute")
 
-@blue_execute.route('/<id>')
-def executepy(id):
+@blue_execute.route('/execute', methods=['POST'])
+def execute():
+
     server_res = Response('The file is executed ...')
     server_res.headers["Access-Control-Allow-Origin"] = "*"
+
+
+    # front 로부터 id가 왔는지 체크
+    if 'id' not in request.form:
+        return 'ID is missing', 404
+    id = request.form['id']    ## 확인 후 수정 필요
+
 
     pjson = './parameter/'+id+'.json'
     params = json.load(open(pjson))
@@ -46,4 +55,5 @@ def executepy(id):
     # out = subprocess.run(order, shell=True)
     # print('return code', out.returncode)
 
-    return server_res
+    plt = makeplot()
+    return "http://3.39.93.244:5000/download/"+plt+".html"
