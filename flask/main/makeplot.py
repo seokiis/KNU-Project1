@@ -104,6 +104,10 @@ result_dic = [
                         "name": "Validation-accuracy",
                         "value": 0.9712
                     }
+                    ,{
+                        "name" : "index",
+                        "value" : 1
+                    }
                 ]
         }
     },
@@ -124,6 +128,10 @@ result_dic = [
                 "name": "Validation-accuracy",
                 "value": 0.9752
             }
+            ,{
+                        "name" : "index",
+                        "value" : 2
+                    }
             ]
         }
     },
@@ -143,7 +151,11 @@ result_dic = [
             {
                 "name": "Validation-accuracy",
                 "value": 0.9679
-            }
+            },
+            {
+                        "name" : "index",
+                        "value" : 3
+                    }
             ]
         }
     },
@@ -163,7 +175,11 @@ result_dic = [
             {
                 "name": "Validation-accuracy",
                 "value": 0.9740
-            }
+            },
+            {
+                        "name" : "index",
+                        "value" : 4
+                    }
             ]
         }
     }
