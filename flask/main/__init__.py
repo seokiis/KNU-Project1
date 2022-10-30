@@ -5,6 +5,7 @@ from . import upload
 from . import download
 from . import execute
 
+
 app = Flask(__name__)
 CORS(app)
 app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), './uploads')
