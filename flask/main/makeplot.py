@@ -77,12 +77,17 @@ def makeplot(dic_result):
                              color_continuous_midpoint=0.1)
 
     
+    # 저장경로 수정 필요 ######
     if not os.path.exists("images"):
         os.mkdir("images")
     fig.show()
+
+    # id값으로 파일 이름 저장하도록 수정 필요 #######
     plotly.offline.plot(fig, filename='images/fig1.html')           # save image by .html
     #fig.write_image("fig1.png")         # pip install -U kaleido   # save image by .png   
     
+    ## 원래는 id 값으로 return해줘야함 ############
+    return "fig1"
     
 
 # example
