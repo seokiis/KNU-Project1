@@ -18,10 +18,10 @@ def execute():
 
 
     # # front 로부터 id가 왔는지 체크
-    # r_json = request.json
-    # if 'id' not in r_json:
-    #     return 'ID is missing', 404
-    # id = r_json['id']    ## 확인 후 수정 필요
+    r_json = request.json
+    if 'id' not in r_json:
+        return 'ID is missing', 404
+    id = r_json['id']    ## 확인 후 수정 필요
 
     # example
     result_dic = [
