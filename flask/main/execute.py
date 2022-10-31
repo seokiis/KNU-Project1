@@ -10,7 +10,7 @@ from flask import Blueprint, request, jsonify, Response, current_app
 
 blue_execute = Blueprint("execute", __name__, url_prefix="/execute")
 
-@blue_execute.route('/execute', methods=['POST'])
+@blue_execute.route('/', methods=['POST'])
 def execute():
 
     server_res = Response('The file is executed ...')
@@ -23,7 +23,7 @@ def execute():
         return 'ID is missing', 404
     id = r_json['id']    ## 확인 후 수정 필요
 
-
+    ''' 
     pjson = './parameter/'+id+'.json'
     params = json.load(open(pjson))
 
@@ -56,7 +56,7 @@ def execute():
 
     # out = subprocess.run(order, shell=True)
     # print('return code', out.returncode)
-
+'''
     # example
     result_dic = [
         {
