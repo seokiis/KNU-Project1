@@ -80,7 +80,9 @@ def makeplot(dic_result):
     # 저장경로 수정 필요 ######
     if not os.path.exists("images"):
         os.mkdir("images")
-    fig.show()
+    
+    # 화면실행 확인용 콛드
+    #fig.show()
 
     # id값으로 파일 이름 저장하도록 수정 필요 #######
     plotly.offline.plot(fig, filename='images/fig1.html')           # save image by .html
