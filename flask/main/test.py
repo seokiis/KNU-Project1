@@ -14,7 +14,7 @@ for i in range(len(parameter['params'])):
 for i in range(len(par_name)):
     for j in range(len(par_value[i])):
     # for j in range(3):
-        print(par_name[i] + '    ' + par_value[i][j])
+        print(par_name[i] + ' ' + par_value[i][j])
 
 # 앞으로 남은 것:
 # 1. 파라미터가 숫자인지 아닌지 파악
