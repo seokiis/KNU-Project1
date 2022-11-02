@@ -9,7 +9,6 @@ from . import execute
 app = Flask(__name__)
 CORS(app)
 app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), './uploads')
-app.config['DOWNLOAD_FOLDER'] = os.path.join(os.getcwd(), './downloads')
 app.config['IMAGE_FOLDER'] = os.path.join(os.getcwd(), './images')
 
 app.register_blueprint(upload.blue_upload)
