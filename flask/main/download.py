@@ -5,4 +5,4 @@ blue_download = Blueprint("download", __name__, url_prefix="/download")
 
 @blue_download.route('/<string:fname>')
 def downloadfile(fname):
-    return send_file(os.path.join(current_app.config['UPLOAD_FOLDER'], fname))
+    return send_file(os.path.join(current_app.config['IMAGE_FOLDER'], fname))

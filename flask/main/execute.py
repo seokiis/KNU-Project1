@@ -124,4 +124,5 @@ def execute():
     ]
 
     plt = makeplot.makeplot(result_dic)
+    print(plt)
     return "http://3.39.93.244:5000/download/"+plt+".html"
