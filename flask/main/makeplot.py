@@ -58,8 +58,7 @@ def makeplot(dic_result, id):
 
 
     fig = px.parallel_coordinates(df, color="Validation-accuracy", 
-                             color_continuous_scale=px.colors.diverging.Tealrose,
-                             color_continuous_midpoint=0.1)
+        color_continuous_scale=px.colors.diverging.Tealrose, color_continuous_midpoint=0.1)
 
     
     #fig.show()
