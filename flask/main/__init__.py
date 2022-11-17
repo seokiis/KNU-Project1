@@ -13,11 +13,11 @@ app.config['PLOT_FOLDER'] = os.path.join(os.getcwd(), './plot')
 
 # 저장할 폴더가 없으면 만들도록 #
 if not os.path.exists(app.config['PARAM_FOLDER']):
-    os.mkdir('parameter')
+    os.mkdir('./parameter')
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
-    os.mkdir('uploads')
+    os.mkdir('./uploads')
 if not os.path.exists(app.config['PLOT_FOLDER']):
-    os.mkdir('plot')
+    os.mkdir('./plot')
 print('*** all directories working well ***')
 
 app.register_blueprint(upload.blue_upload)
