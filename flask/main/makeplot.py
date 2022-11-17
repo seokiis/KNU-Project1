@@ -15,7 +15,7 @@ import os
 @ dic_result : json list
 @@@ 수정해야할 부분 : file이름에 id가 들어가도록 변경, 파일저장위치 변경
 '''
-def makeplot(dic_result):
+def makeplot(dic_result, id):
 
     # get value from dic_result (parameter names, value)
     # datalist = [[("name","value"),("name","value")]]
@@ -83,7 +83,7 @@ def makeplot(dic_result):
     #fig.show()
 
     # id값으로 파일 이름 저장하도록 수정 필요 #######
-    plotly.offline.plot(fig, filename='plot/fig1.html')           # save image by .html
+    plotly.offline.plot(fig, filename='plot/'+id+'_plot.html')           # save image by .html
     #fig.write_image("fig1.png")         # pip install -U kaleido   # save image by .png   
     
     ## 원래는 id 값으로 return해줘야함 ############

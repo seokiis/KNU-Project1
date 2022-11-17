@@ -123,6 +123,6 @@ def execute():
         }
     ]
 
-    plt = makeplot.makeplot(result_dic)
+    plt = makeplot.makeplot(result_dic, id)
     print(plt)
     return "http://3.39.93.244:5000/download/plot/"+plt+".html"

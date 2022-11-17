@@ -51,7 +51,7 @@ def uploadparam():
     # **** 파라미터를 저장합니다
     print(params)
     id = params['id']
-    ppath = './parameter/'+id+'.json'
+    ppath = './parameter/'+id+'_parameter.json'
     with open(ppath, 'w', encoding='utf_8') as psave:
         json.dump(params, psave, indent=4)
     print(f'parameters have been saved successfully in {id}.json')
