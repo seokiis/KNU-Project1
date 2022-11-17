@@ -78,14 +78,14 @@ def makeplot(dic_result):
 
     
     # 저장경로 수정 필요 ######
-    if not os.path.exists("images"):
-        os.mkdir("images")
+    if not os.path.exists("PLOT_FOLDER"):
+        os.mkdir("PLOT_FOLDER")
     
     # 화면실행 확인용 콛드
     #fig.show()
 
     # id값으로 파일 이름 저장하도록 수정 필요 #######
-    plotly.offline.plot(fig, filename='images/fig1.html')           # save image by .html
+    plotly.offline.plot(fig, filename='PLOT_FOLDER/fig1.html')           # save image by .html
     #fig.write_image("fig1.png")         # pip install -U kaleido   # save image by .png   
     
     ## 원래는 id 값으로 return해줘야함 ############
