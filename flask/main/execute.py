@@ -4,8 +4,9 @@ import os
 from itertools import product
 from . import upload
 from . import makeplot
+from . import download
 from werkzeug.utils import secure_filename
-from flask import Blueprint, request, jsonify, Response, current_app
+from flask import Blueprint, request, jsonify, Response, current_app, redirect, url_for
 
 
 blue_execute = Blueprint("execute", __name__, url_prefix="/execute")
@@ -21,7 +22,7 @@ def execute():
     r_json = request.json
     if 'id' not in r_json:
         return 'ID is missing', 404
-    id = r_json['id']    ## 확인 후 수정 필요
+    id = str(r_json['id'])    ## 확인 후 수정 필요
 
     # example
     result_dic = [
@@ -124,5 +125,9 @@ def execute():
     ]
 
     plt = makeplot.makeplot(result_dic, id)
+    if plt:
+        server_res = Response('successfully executed.')
+    else:
+        server_res = Response('something went wrong.')
     print(plt)
-    return "http://3.39.93.244:5000/download/plot/"+plt+".html"
+    return server_res

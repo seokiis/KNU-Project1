@@ -63,7 +63,7 @@ def makeplot(dic_result, id):
     
     #fig.show()
     # save image by .html
-    plotly.offline.plot(fig, filename='plot/'+id+'_plot.html')           
+    #plotly.offline.plot(fig, filename='plot/'+id+'_plot.html')           
 
     return id+'_plot'
     

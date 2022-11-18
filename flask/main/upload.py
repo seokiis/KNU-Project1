@@ -12,7 +12,6 @@ userfile = ''
 @blue_upload.route('/file', methods=['POST'])
 def uploadfile():
     global userfile
-
     server_res = Response('Successfully uploaded in Server.')
     server_res.headers["Access-Control-Allow-Origin"] = "*"
 
