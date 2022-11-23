@@ -6,6 +6,9 @@ import tensorflow as tf
 import numpy as np
 from datetime import datetime, timezone
 import argparse
+import math
+import time
+
 
 #hyperparameter
 parser = argparse.ArgumentParser()
@@ -39,20 +42,21 @@ def train():
     model.compile(optimizer=tf.keras.optimizers.SGD(learning_rate=learning_rate),
                   loss='sparse_categorical_crossentropy',
                   metrics=['acc'])
-
+    start = time.time()
+    
     print("Training...")
 
     #katib_metric_log_callback = KatibMetricLog()
     training_history = model.fit(x_train, y_train, batch_size=64, epochs=10,
                                  validation_data=(x_val, y_val))
-
+    end = time.time()
     print("\\ntraining_history:", training_history.history)
 
     # Evaluate the model on the test data using `evaluate`
     print('\\n# Evaluate on test data')
     results = model.evaluate(x_test, y_test, batch_size=128)
     print('test loss, test acc:', results)
-
+    print(f"{end - start:.5f} sec")
 
 if __name__ == '__main__':
     train()
