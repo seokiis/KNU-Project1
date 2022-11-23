@@ -130,7 +130,5 @@ def execute():
     plt = makeplot.makeplot(parameter, id)
     # plt = makeplot.makeplot(result_dic, id)
     # print(plt)
-    loadcsv(plt)
-    loadhtml(plt)
-    loadcsv(plt)
-    return redirect(url_for('download.downloadplot', fname=plt+'.csv'))
+
+    return redirect(url_for('download.downloadplot', fname=plt+'.csv')), redirect(url_for('download.downloadplot', fname=plt+'.html'))

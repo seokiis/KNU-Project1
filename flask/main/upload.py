@@ -2,12 +2,13 @@ import os
 from itertools import product
 from werkzeug.utils import secure_filename
 import json
-from flask import Blueprint, request, jsonify, Response, current_app
+from flask import Blueprint, request, jsonify, Response, current_app, url_for, redirect
 
 blue_upload = Blueprint("upload", __name__, url_prefix="/upload")
 
 global userfile
 userfile = ''
+
 
 @blue_upload.route('/file', methods=['POST'])
 def uploadfile():
@@ -24,10 +25,10 @@ def uploadfile():
 
     f = request.files['model']
     id = request.form['id']
-    
+
     if f.filename == '':
         return 'File is missing', 404
-    
+
 # **** 파일을 저장합니다 **** 파일명 = ID_filename
     filename = secure_filename(f.filename)
     f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], id+'_'+filename))
@@ -35,6 +36,7 @@ def uploadfile():
     userfile = id+'_'+filename
 
     return server_res
+
 
 @blue_upload.route('/param', methods=['POST'])
 def uploadparam():
