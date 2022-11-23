@@ -2,7 +2,7 @@
 apiVersion: kubeflow.org/v1beta1
 kind: Experiment
 metadata:
-  namespace: kubeflow-user-example-com
+  namespace: kubeflow
   name: random
 spec:
   objective:
@@ -13,7 +13,7 @@ spec:
       - Train-accuracy
   algorithm:
     algorithmName: random
-  parallelTrialCount: 1
+  parallelTrialCount: 3
   maxTrialCount: 12
   maxFailedTrialCount: 3
   parameters:
@@ -65,4 +65,5 @@ spec:
                   - "--lr=${trialParameters.learningRate}"
                   - "--num-layers=${trialParameters.numberLayers}"
                   - "--optimizer=${trialParameters.optimizer}"
+                  - "--num-epochs=1" 
             restartPolicy: Never
