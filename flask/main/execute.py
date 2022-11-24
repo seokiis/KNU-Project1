@@ -10,14 +10,6 @@ from flask import Blueprint, request, jsonify, Response, current_app, redirect, 
 blue_execute = Blueprint("execute", __name__, url_prefix="/execute")
 
 
-def loadcsv(plt):
-    return redirect(url_for('download.downloadplot', fname=plt+'.csv'))
-
-
-def loadhtml(plt):
-    return redirect(url_for('download.downloadplot', fname=plt+'.html'))
-
-
 @blue_execute.route('/', methods=['POST'])
 def execute():
 
@@ -31,6 +23,11 @@ def execute():
     # id = r_json['id']  # 확인 후 수정 필요
     # parameter = r_json['params']
     # # example
+
+    # yaml 파일 만들었다 치고,
+    # order = 'kubectl apply -f ' + id + '.yaml'
+    # out = subprocess.run(order, shell=True)
+
     result_dic = [
         {
             "assignments": [
@@ -396,11 +393,8 @@ def execute():
     # plt = makeplot.makeplot(parameter, id)
     id = 'sion'
     plt = makeplot.makeplot(result_dic, id)
-    # print(plt)
-    # loadcsv(plt)
-    # loadhtml(plt)
-    # loadcsv(plt)
-    # 11/23 이 방식 대로 하니까 잘감
-    return send_file(os.path.join(current_app.config['PLOT_FOLDER'], plt+'.csv'))
 
-    # return send_file(os.path.join(current_app.config['PLOT_FOLDER'], plt+'.html'))
+    # 11/23 이 방식 대로 하니까 잘감
+    # return send_file(os.path.join(current_app.config['PLOT_FOLDER'], plt+'.csv'))
+
+    return send_file(os.path.join(current_app.config['PLOT_FOLDER'], plt+'.html'))
