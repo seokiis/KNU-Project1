@@ -48,7 +48,8 @@ def execute():
                     {
                         "name": "Validation-accuracy",
                         "value": 0.9712
-                    }, {
+                    },
+                    {
                         "name": "index",
                         "value": 1
                     }
@@ -71,7 +72,8 @@ def execute():
                     {
                         "name": "Validation-accuracy",
                         "value": 0.9752
-                    }, {
+                    },
+                    {
                         "name": "index",
                         "value": 2
                     }
@@ -122,6 +124,270 @@ def execute():
                     {
                         "name": "index",
                         "value": 4
+                    }
+                ]
+            }
+        },
+        {
+            "assignments": [
+                {
+                    "name": "--learning_rate",
+                    "value": "0.08277734351368438"
+                },
+                {
+                    "name": "--dropout",
+                    "value": "0.4559382425122721"
+                }
+            ],
+            "observation": {
+                "metrics": [
+                    {
+                        "name": "Validation-accuracy",
+                        "value": 0.9612
+                    },
+                    {
+                        "name": "index",
+                        "value": 5
+                    }
+                ]
+            }
+        },
+        {
+            "assignments": [
+                {
+                    "name": "--learning_rate",
+                    "value": "0.08277734351368438"
+                },
+                {
+                    "name": "--dropout",
+                    "value": "0.3439382425122721"
+                }
+            ],
+            "observation": {
+                "metrics": [
+                    {
+                        "name": "Validation-accuracy",
+                        "value": 0.9511
+                    },
+                    {
+                        "name": "index",
+                        "value": 6
+                    }
+                ]
+            }
+        },
+        {
+            "assignments": [
+                {
+                    "name": "--learning_rate",
+                    "value": "0.08297734351368438"
+                },
+                {
+                    "name": "--dropout",
+                    "value": "0.4639382425122721"
+                }
+            ],
+            "observation": {
+                "metrics": [
+                    {
+                        "name": "Validation-accuracy",
+                        "value": 0.9722
+                    },
+                    {
+                        "name": "index",
+                        "value": 7
+                    }
+                ]
+            }
+        },
+        {
+            "assignments": [
+                {
+                    "name": "--learning_rate",
+                    "value": "0.08077734351368438"
+                },
+                {
+                    "name": "--dropout",
+                    "value": "0.4039382425122721"
+                }
+            ],
+            "observation": {
+                "metrics": [
+                    {
+                        "name": "Validation-accuracy",
+                        "value": 0.9988
+                    },
+                    {
+                        "name": "index",
+                        "value": 8
+                    }
+                ]
+            }
+        },
+        {
+            "assignments": [
+                {
+                    "name": "--learning_rate",
+                    "value": "0.08167734351368438"
+                },
+                {
+                    "name": "--dropout",
+                    "value": "0.4139382425122721"
+                }
+            ],
+            "observation": {
+                "metrics": [
+                    {
+                        "name": "Validation-accuracy",
+                        "value": 0.9797
+                    },
+                    {
+                        "name": "index",
+                        "value": 9
+                    }
+                ]
+            }
+        },
+        {
+            "assignments": [
+                {
+                    "name": "--learning_rate",
+                    "value": "0.08477734351368438"
+                },
+                {
+                    "name": "--dropout",
+                    "value": "0.4239382425122721"
+                }
+            ],
+            "observation": {
+                "metrics": [
+                    {
+                        "name": "Validation-accuracy",
+                        "value": 0.9102
+                    },
+                    {
+                        "name": "index",
+                        "value": 10
+                    }
+                ]
+            }
+        },
+        {
+            "assignments": [
+                {
+                    "name": "--learning_rate",
+                    "value": "0.08377734351368438"
+                },
+                {
+                    "name": "--dropout",
+                    "value": "0.4839382425122721"
+                }
+            ],
+            "observation": {
+                "metrics": [
+                    {
+                        "name": "Validation-accuracy",
+                        "value": 0.9212
+                    },
+                    {
+                        "name": "index",
+                        "value": 11
+                    }
+                ]
+            }
+        },
+        {
+            "assignments": [
+                {
+                    "name": "--learning_rate",
+                    "value": "0.08197734351368438"
+                },
+                {
+                    "name": "--dropout",
+                    "value": "0.4239382425122721"
+                }
+            ],
+            "observation": {
+                "metrics": [
+                    {
+                        "name": "Validation-accuracy",
+                        "value": 0.9714
+                    },
+                    {
+                        "name": "index",
+                        "value": 12
+                    }
+                ]
+            }
+        },
+        {
+            "assignments": [
+                {
+                    "name": "--learning_rate",
+                    "value": "0.09177734351368438"
+                },
+                {
+                    "name": "--dropout",
+                    "value": "0.4139382425122721"
+                }
+            ],
+            "observation": {
+                "metrics": [
+                    {
+                        "name": "Validation-accuracy",
+                        "value": 0.9924
+                    },
+                    {
+                        "name": "index",
+                        "value": 13
+                    }
+                ]
+            }
+        },
+        {
+            "assignments": [
+                {
+                    "name": "--learning_rate",
+                    "value": "0.07177734351368438"
+                },
+                {
+                    "name": "--dropout",
+                    "value": "0.4439382425122721"
+                }
+            ],
+            "observation": {
+                "metrics": [
+                    {
+                        "name": "Validation-accuracy",
+                        "value": 0.9334
+                    },
+                    {
+                        "name": "index",
+                        "value": 14
+                    }
+                ]
+            }
+        },
+        {
+            "assignments": [
+                {
+                    "name": "--learning_rate",
+                    "value": "0.08377734351368438"
+                },
+                {
+                    "name": "--dropout",
+                    "value": "0.4439382425122721"
+                }
+            ],
+            "observation": {
+                "metrics": [
+                    {
+                        "name": "Validation-accuracy",
+                        "value": 0.9112
+                    },
+                    {
+                        "name": "index",
+                        "value": 15
                     }
                 ]
             }
