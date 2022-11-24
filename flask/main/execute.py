@@ -135,6 +135,6 @@ def execute():
     # loadhtml(plt)
     # loadcsv(plt)
     # 11/23 이 방식 대로 하니까 잘감
-    # return send_file(os.path.join(current_app.config['PLOT_FOLDER'], plt+'.csv'))
+    return send_file(os.path.join(current_app.config['PLOT_FOLDER'], plt+'.csv'))
 
-    return send_file(os.path.join(current_app.config['PLOT_FOLDER'], plt+'.html'))
+    # return send_file(os.path.join(current_app.config['PLOT_FOLDER'], plt+'.html'))
