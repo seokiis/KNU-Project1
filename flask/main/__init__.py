@@ -10,6 +10,7 @@ CORS(app)
 app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), './uploads')
 app.config['PARAM_FOLDER'] = os.path.join(os.getcwd(), './parameter')
 app.config['PLOT_FOLDER'] = os.path.join(os.getcwd(), './plot')
+app.config['YAML_FOLDER'] = os.path.join(os.getcwd(), './yaml')
 
 # 저장할 폴더가 없으면 만들도록 #
 if not os.path.exists(app.config['PARAM_FOLDER']):
@@ -18,6 +19,9 @@ if not os.path.exists(app.config['UPLOAD_FOLDER']):
     os.mkdir('./uploads')
 if not os.path.exists(app.config['PLOT_FOLDER']):
     os.mkdir('./plot')
+if not os.path.exists(app.config['YAML_FOLDER']):
+    os.mkdir('./yaml')
+
 print('*** all directories working well ***')
 
 app.register_blueprint(upload.blue_upload)

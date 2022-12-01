@@ -1,0 +1,12 @@
+{
+    "params": [
+        {
+            "name": "123",
+            "domain": "123",
+            "valuemin": "123",
+            "valuemax": "123",
+            "valuestep": "123"
+        }
+    ],
+    "id": "1"
+}
