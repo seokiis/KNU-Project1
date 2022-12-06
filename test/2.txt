@@ -1,50 +1,20 @@
-import json
-import subprocess
-import os
-from itertools import product
-from . import makeplot
-from werkzeug.utils import secure_filename
-from flask import Blueprint, request, jsonify, Response, current_app, redirect, url_for, send_file
-
-
-blue_execute = Blueprint("execute", __name__, url_prefix="/execute")
-
-
-@blue_execute.route('/', methods=['POST'])
-def execute():
-
-    server_res = Response('The file is executed ...')
-    server_res.headers["Access-Control-Allow-Origin"] = "*"
-
-    # # front 로부터 id가 왔는지 체크
-    # r_json = request.json
-    # if 'id' not in r_json:
-    #     return 'ID is missing', 404
-    # id = r_json['id']  # 확인 후 수정 필요
-    # parameter = r_json['params']
-    # # example
-
-    # yaml 파일 만들었다 치고,
-    # order = 'kubectl apply -f ' + id + '.yaml'
-    # out = subprocess.run(order, shell=True)
-
-    result_dic = [
+result_dic = [
         {
             "assignments": [
                 {
                     "name": "--learning_rate",
-                    "value": "0.13289143571323157"
+                    "value": "0.09871456145317767"
                 },
                 {
                     "name": "--dropout",
-                    "value": "0.48400234186543241"
+                    "value": "0.44398765451238976"
                 }
             ],
             "observation": {
                 "metrics": [
                     {
                         "name": "Validation-accuracy",
-                        "value": 0.9956
+                        "value": 0.9756
                     },
                     {
                         "name": "index",
@@ -57,18 +27,18 @@ def execute():
             "assignments": [
                 {
                     "name": "--learning_rate",
-                    "value": "0.0846578145345314"
+                    "value": "0.15416578145345314"
                 },
                 {
                     "name": "--dropout",
-                    "value": "0.15671137817565413"
+                    "value": "0.25671137817565413"
                 }
             ],
             "observation": {
                 "metrics": [
                     {
                         "name": "Validation-accuracy",
-                        "value": 0.9665
+                        "value": 0.9744
                     },
                     {
                         "name": "index",
@@ -81,18 +51,18 @@ def execute():
             "assignments": [
                 {
                     "name": "--learning_rate",
-                    "value": "0.0871456123784531"
+                    "value": "0.0381716513781534"
                 },
                 {
                     "name": "--dropout",
-                    "value": "0.1567145612312484"
+                    "value": "0.1916513148713217"
                 }
             ],
             "observation": {
                 "metrics": [
                     {
                         "name": "Validation-accuracy",
-                        "value": 0.9689
+                        "value": 0.9713
                     },
                     {
                         "name": "index",
@@ -116,7 +86,7 @@ def execute():
                 "metrics": [
                     {
                         "name": "Validation-accuracy",
-                        "value": 0.9947
+                        "value": 0.9746
                     },
                     {
                         "name": "index",
@@ -129,7 +99,7 @@ def execute():
             "assignments": [
                 {
                     "name": "--learning_rate",
-                    "value": "0.1567845121368438"
+                    "value": "0.08277734351368438"
                 },
                 {
                     "name": "--dropout",
@@ -140,7 +110,7 @@ def execute():
                 "metrics": [
                     {
                         "name": "Validation-accuracy",
-                        "value": 0.9855
+                        "value": 0.9612
                     },
                     {
                         "name": "index",
@@ -157,14 +127,14 @@ def execute():
                 },
                 {
                     "name": "--dropout",
-                    "value": "0.5123784535321771"
+                    "value": "0.6715671545321771"
                 }
             ],
             "observation": {
                 "metrics": [
                     {
                         "name": "Validation-accuracy",
-                        "value": 0.9619
+                        "value": 0.9719
                     },
                     {
                         "name": "index",
@@ -188,7 +158,7 @@ def execute():
                 "metrics": [
                     {
                         "name": "Validation-accuracy",
-                        "value": 0.9855
+                        "value": 0.9712
                     },
                     {
                         "name": "index",
@@ -201,18 +171,18 @@ def execute():
             "assignments": [
                 {
                     "name": "--learning_rate",
-                    "value": "0.1567213845612354"
+                    "value": "0.0805403215675321"
                 },
                 {
                     "name": "--dropout",
-                    "value": "0.4512384512358945"
+                    "value": "0.6540845387013575"
                 }
             ],
             "observation": {
                 "metrics": [
                     {
                         "name": "Validation-accuracy",
-                        "value": 0.9623
+                        "value": 0.9840
                     },
                     {
                         "name": "index",
@@ -236,7 +206,7 @@ def execute():
                 "metrics": [
                     {
                         "name": "Validation-accuracy",
-                        "value": 0.9733
+                        "value": 0.9655
                     },
                     {
                         "name": "index",
@@ -249,18 +219,18 @@ def execute():
             "assignments": [
                 {
                     "name": "--learning_rate",
-                    "value": "0.0132865131286123"
+                    "value": "0.0715613571876548"
                 },
                 {
                     "name": "--dropout",
-                    "value": "0.5151321878612315"
+                    "value": "0.6548062357012384"
                 }
             ],
             "observation": {
                 "metrics": [
                     {
                         "name": "Validation-accuracy",
-                        "value": 0.9764
+                        "value": 0.9333
                     },
                     {
                         "name": "index",
@@ -308,7 +278,7 @@ def execute():
                 "metrics": [
                     {
                         "name": "Validation-accuracy",
-                        "value": 0.9561
+                        "value": 0.9714
                     },
                     {
                         "name": "index",
@@ -332,7 +302,7 @@ def execute():
                 "metrics": [
                     {
                         "name": "Validation-accuracy",
-                        "value": 0.9824
+                        "value": 0.9924
                     },
                     {
                         "name": "index",
@@ -390,11 +360,3 @@ def execute():
             }
         }
     ]
-    # plt = makeplot.makeplot(parameter, id)
-    id = '3'
-    plt = makeplot.makeplot(result_dic, id)
-
-    # 11/23 이 방식 대로 하니까 잘감
-    # return send_file(os.path.join(current_app.config['PLOT_FOLDER'], plt+'.csv'))
-
-    return send_file(os.path.join(current_app.config['PLOT_FOLDER'], plt+'.html'))

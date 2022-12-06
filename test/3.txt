@@ -1,34 +1,4 @@
-import json
-import subprocess
-import os
-from itertools import product
-from . import makeplot
-from werkzeug.utils import secure_filename
-from flask import Blueprint, request, jsonify, Response, current_app, redirect, url_for, send_file
-
-
-blue_execute = Blueprint("execute", __name__, url_prefix="/execute")
-
-
-@blue_execute.route('/', methods=['POST'])
-def execute():
-
-    server_res = Response('The file is executed ...')
-    server_res.headers["Access-Control-Allow-Origin"] = "*"
-
-    # # front 로부터 id가 왔는지 체크
-    # r_json = request.json
-    # if 'id' not in r_json:
-    #     return 'ID is missing', 404
-    # id = r_json['id']  # 확인 후 수정 필요
-    # parameter = r_json['params']
-    # # example
-
-    # yaml 파일 만들었다 치고,
-    # order = 'kubectl apply -f ' + id + '.yaml'
-    # out = subprocess.run(order, shell=True)
-
-    result_dic = [
+result_dic = [
         {
             "assignments": [
                 {
@@ -390,11 +360,3 @@ def execute():
             }
         }
     ]
-    # plt = makeplot.makeplot(parameter, id)
-    id = '3'
-    plt = makeplot.makeplot(result_dic, id)
-
-    # 11/23 이 방식 대로 하니까 잘감
-    # return send_file(os.path.join(current_app.config['PLOT_FOLDER'], plt+'.csv'))
-
-    return send_file(os.path.join(current_app.config['PLOT_FOLDER'], plt+'.html'))
